@@ -21,3 +21,22 @@ var indexToPos = function (index) {
         y: Math.floor(index / 4),
     }
 }
+
+var getLocalStorage = function (key) {
+    return localStorage[key] ?
+        JSON.parse(localStorage[key]) : null;
+}
+
+var touchMoveDir = function (elem, min, callback) {
+    var touchPos = {
+        beforeX: 0,
+        beforeY: 0,
+        afterX: 0,
+        afterY: 0,
+    }
+    var move = false;
+    var dir;
+    on(elem, 'touchstart', function (e) {
+        touchPos.beforeX = e.touches[0].clientX;
+        touchPos.beforeY = e.touches[0].clientY;
+    });
