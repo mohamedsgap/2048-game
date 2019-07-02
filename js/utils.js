@@ -40,3 +40,25 @@ var touchMoveDir = function (elem, min, callback) {
         touchPos.beforeX = e.touches[0].clientX;
         touchPos.beforeY = e.touches[0].clientY;
     });
+    on(elem, 'touchmove', function (e) {
+        move = true;
+        touchPos.afterX = e.touches[0].clientX;
+        touchPos.afterY = e.touches[0].clientY;
+    });
+    on(elem, 'touchend', function (e) {
+        if (!move) return;
+        var x = touchPos.beforeX - touchPos.afterX;
+        var y = touchPos.beforeY - touchPos.afterY;
+        log(x, y);
+        if (Math.abs(x) < min && Math.abs(y) < min) {
+            return;
+        }
+        if (Math.abs(x) > Math.abs(y)) {
+            dir = x > 0 ? 0 : 2;
+        } else {
+            dir = y > 0 ? 1 : 3;
+        }
+        move = false;
+        callback(dir);
+    });
+};
