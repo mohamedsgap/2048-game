@@ -6,3 +6,18 @@ var random = function (start, end) {
     var rand = Math.random() * (end - start) + start;
     return Math.floor(rand);
 };
+var $ = function (elem) {
+    return document.querySelectorAll(elem);
+}
+var on = function (elem, type, callback) {
+    elem.addEventListener(type, function (e) {
+        callback(e);
+    });
+}
+
+var indexToPos = function (index) {
+    return {
+        x: index % 4,
+        y: Math.floor(index / 4),
+    }
+}
