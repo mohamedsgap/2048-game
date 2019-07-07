@@ -5,3 +5,7 @@
 
 ### How to play:
 Use your arrow keys to move the tiles. When two tiles with the same number touch, they merge into one!
+
+#### Feel free to play it :)
+You can play it now just click [here!](https://mohamedsgap.github.io/2048-game/)
+https://mohamedsgap.github.io/2048-game/
